@@ -13,7 +13,7 @@ const App = () => {
       <div className="container-view">
         <Routes>
           <Route exact path={"/"} element={<ActivityList />} />
-          <Route path={"/activity/:id"} element={<Activity />} />
+          <Route path={"/activities/:id"} element={<Activity />} />
         </Routes>
       </div>
     </div>

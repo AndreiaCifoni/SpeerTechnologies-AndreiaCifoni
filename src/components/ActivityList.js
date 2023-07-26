@@ -8,7 +8,7 @@ const ActivityList = () => {
   const fetchActivity = async () => {
     try {
       const response = await fetch(
-        `https://cerulean-marlin-wig.cyclic.app//activities`
+        `https://cerulean-marlin-wig.cyclic.app/activities`
       );
       const data = await response.json();
 
