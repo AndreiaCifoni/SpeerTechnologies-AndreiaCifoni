@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ActivityCard from "./ActivityCard";
+import "../css/body.css";
 
 const ActivityList = () => {
   const [activityList, setActivityList] = useState([]);
@@ -27,7 +28,8 @@ const ActivityList = () => {
       <ActivityCard
         key={activity.id}
         activity_id={activity.id}
-        from={activity.from}
+        to={activity.to}
+        via={activity.via}
       />
     );
   });
@@ -45,7 +47,9 @@ const ActivityList = () => {
         </div>
         <Link to="/archive">Archive All</Link>
       </div>
-      <div>{activityList ? showActivity : "There is no activity to show"}</div>
+      <div className="activity_list_container">
+        {activityList ? showActivity : "There is no activity to show"}
+      </div>
     </div>
   );
 };

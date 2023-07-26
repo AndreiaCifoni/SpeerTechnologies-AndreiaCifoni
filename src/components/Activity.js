@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
+import "../css/body.css";
 
 const Activity = () => {
   const [activity, setActivity] = useState(null);
@@ -23,7 +24,7 @@ const Activity = () => {
 
   return (
     <div>
-      <h1>Call Details</h1>
+      <h1 className="activity_title">Call Details</h1>
       <p>Direction: {activity.direction}</p>
       <p>From: {activity.from}</p>
       <p>To: {activity.to}</p>

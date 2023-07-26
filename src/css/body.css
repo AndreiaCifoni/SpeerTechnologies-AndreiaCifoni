@@ -1,4 +1,10 @@
-html, body, h1, h2, h3, ul, li {
+html,
+body,
+h1,
+h2,
+h3,
+ul,
+li {
   margin: 0;
   padding: 0;
   border: 0;
@@ -12,4 +18,25 @@ body {
   font-size: 13px;
   color: #333333;
   line-height: 1;
+}
+
+.activity_title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.activity_list_container {
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.activity_card_container {
+  width: 75%;
+  border: solid 2px #24be76;
+  border-radius: 4px;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+}
+.activity_card_link {
+  text-decoration: none;
 }
