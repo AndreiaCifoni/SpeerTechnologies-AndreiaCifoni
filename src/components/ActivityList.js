@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ActivityCard from "./ActivityCard";
 
 const ActivityList = () => {
@@ -22,7 +23,13 @@ const ActivityList = () => {
   }, []);
 
   const showActivity = activityList.map((activity) => {
-    return <ActivityCard key={activity.id} from={activity.from} />;
+    return (
+      <ActivityCard
+        key={activity.id}
+        activity_id={activity.id}
+        from={activity.from}
+      />
+    );
   });
 
   if (!activityList) {
@@ -30,7 +37,16 @@ const ActivityList = () => {
   }
 
   return (
-    <div>{activityList ? showActivity : "There is no activity to show"}</div>
+    <div>
+      <div>
+        <div>
+          <Link to="/">Inbox</Link>
+          <Link to="/archive">Archive</Link>
+        </div>
+        <Link to="/archive">Archive All</Link>
+      </div>
+      <div>{activityList ? showActivity : "There is no activity to show"}</div>
+    </div>
   );
 };
 

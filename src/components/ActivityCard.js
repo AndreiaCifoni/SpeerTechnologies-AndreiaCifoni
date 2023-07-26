@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ActivityCard = ({ from }) => {
+const ActivityCard = ({ activity_id, from }) => {
   return (
-    <div>
-      <span>{from}</span>
-    </div>
+    <Link to={`/activities/${activity_id}`}>
+      <div>
+        <span>{from}</span>
+      </div>
+    </Link>
   );
 };
 
