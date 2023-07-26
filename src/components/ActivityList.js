@@ -40,12 +40,18 @@ const ActivityList = () => {
 
   return (
     <div>
-      <div>
-        <div>
-          <Link to="/">Inbox</Link>
-          <Link to="/archive">Archive</Link>
+      <div className="home-container">
+        <div className="home-container2">
+          <Link className="activity_list_link" to="/">
+            Inbox
+          </Link>
+          <Link className="activity_list_link" to="/archive">
+            Archive
+          </Link>
         </div>
-        <Link to="/archive">Archive All</Link>
+        <Link className="activity_list_link" to="/archive">
+          Archive All
+        </Link>
       </div>
       <div className="activity_list_container">
         {activityList ? showActivity : "There is no activity to show"}

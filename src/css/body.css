@@ -25,9 +25,30 @@ body {
   font-weight: bold;
 }
 
+.home-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-container2 {
+  display: flex;
+  align-items: center;
+}
+
 .activity_list_container {
   height: 500px;
   overflow-y: scroll;
+}
+
+.activity_list_link {
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  margin: 0.3rem 0.5rem;
+  border: solid 2px #125a38;
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  background-color: #125a38;
 }
 
 .activity_card_container {
