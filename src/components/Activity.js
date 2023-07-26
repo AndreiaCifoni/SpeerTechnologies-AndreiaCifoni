@@ -23,19 +23,17 @@ const Activity = () => {
 
   return (
     <div>
-      <h2>{activity.from}</h2>
+      <h1>Call Details</h1>
+      <p>Direction: {activity.direction}</p>
+      <p>From: {activity.from}</p>
+      <p>To: {activity.to}</p>
+      <p>Via: {activity.via}</p>
+      <p>Duration: {activity.duration}</p>
+      <p>Archived: {activity.is_archived}</p>
+      <p>Call type: {activity.call_type}</p>
+      <p>Created at: {activity.created_at}</p>
     </div>
   );
 };
 
 export default Activity;
-
-// "direction": "inbound",
-//     "from": 100001,
-//     "to": 200002,
-//     "via": 30000003,
-//     "duration": 10,
-//     "is_archived": true,
-//     "call_type": "answered",
-//     "id": "6393bb7b69073dc45849ca7c",
-//     "created_at": "2022-12-09T22:49:31.911Z"
