@@ -3,26 +3,7 @@ import React, { useState, useEffect } from "react";
 import ActivityCard from "./ActivityCard";
 import "../css/body.css";
 
-const ActivityList = () => {
-  const [activityList, setActivityList] = useState([]);
-
-  const fetchActivity = async () => {
-    try {
-      const response = await fetch(
-        `https://cerulean-marlin-wig.cyclic.app/activities`
-      );
-      const data = await response.json();
-
-      setActivityList(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchActivity();
-  }, []);
-
+const ActivityList = ({ activityList }) => {
   const showActivity = activityList
     .filter((activity) => !activity.is_archived)
     .map((activity) => {
@@ -35,10 +16,6 @@ const ActivityList = () => {
         />
       );
     });
-
-  if (!activityList) {
-    return <div>Loading</div>;
-  }
 
   return (
     <div className="activity_list_container">

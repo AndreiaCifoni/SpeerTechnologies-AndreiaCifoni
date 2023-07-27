@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -10,6 +10,24 @@ import HomePage from "./HomePage.js";
 
 const App = () => {
   const [isArchivePage, setIsArchivePage] = useState(false);
+  const [activityList, setActivityList] = useState([]);
+
+  const fetchActivity = async () => {
+    try {
+      const response = await fetch(
+        `https://cerulean-marlin-wig.cyclic.app/activities`
+      );
+      const data = await response.json();
+
+      setActivityList(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchActivity();
+  }, []);
 
   const onInboxHome = () => {
     setIsArchivePage(false);
@@ -17,6 +35,10 @@ const App = () => {
   const onArchiveHome = () => {
     setIsArchivePage(true);
   };
+
+  if (!activityList) {
+    return <div>Loading</div>;
+  }
 
   return (
     <div className="container">
@@ -43,10 +65,18 @@ const App = () => {
           <Route
             exact
             path={"/"}
-            element={<HomePage isArchivePage={isArchivePage} />}
+            element={
+              <HomePage
+                isArchivePage={isArchivePage}
+                activityList={activityList}
+              />
+            }
           />
           <Route path={"/activities/:id"} element={<Activity />} />
-          <Route path={"/archive"} element={<ActivityArchive />} />
+          <Route
+            path={"/archive"}
+            element={<ActivityArchive activityList={activityList} />}
+          />
         </Routes>
       </div>
     </div>
