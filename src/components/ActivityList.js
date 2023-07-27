@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import ActivityCard from "./ActivityCard";
 import "../css/body.css";
 
@@ -41,23 +41,8 @@ const ActivityList = () => {
   }
 
   return (
-    <div>
-      <div className="home-container">
-        <div className="home-container2">
-          <Link className="activity_list_link" to="/">
-            Inbox
-          </Link>
-          <Link className="activity_list_link" to="/archive">
-            Archive
-          </Link>
-        </div>
-        <Link className="activity_list_link" to="/archive">
-          Archive All
-        </Link>
-      </div>
-      <div className="activity_list_container">
-        {activityList ? showActivity : "There is no activity to show"}
-      </div>
+    <div className="activity_list_container">
+      {activityList ? showActivity : "There is no activity to show"}
     </div>
   );
 };

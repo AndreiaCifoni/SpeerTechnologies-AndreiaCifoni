@@ -25,12 +25,12 @@ body {
   font-weight: bold;
 }
 
-.home-container {
+.nav-container {
   display: flex;
   justify-content: space-around;
 }
 
-.home-container2 {
+.nav-container2 {
   display: flex;
   align-items: center;
 }
