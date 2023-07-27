@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import "../css/body.css";
 
 const Activity = () => {
@@ -9,7 +9,7 @@ const Activity = () => {
   const [isArchived, setIsArchived] = useState(null);
 
   let { id } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const fetchActivity = useCallback(async () => {
     const response = await fetch(
@@ -46,11 +46,11 @@ const Activity = () => {
     }
   };
 
-  const handleSingleActivityArchive = () => {
+  const handleSingleActivityArchive = async () => {
     const updatedIsArchivedValue = !isArchived;
     setIsArchived(updatedIsArchivedValue);
     updateActivityArchive(activity.id, updatedIsArchivedValue);
-    navigate(`/`);
+    // navigate(`/`);
   };
 
   if (!activity) {
@@ -73,7 +73,7 @@ const Activity = () => {
       </Link>
       <Link
         className="activity_list_link"
-        to="/archive"
+        // to="/archive"
         onClick={handleSingleActivityArchive}
       >
         {isArchived ? "Unarchive" : "Archive"}
