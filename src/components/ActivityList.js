@@ -23,16 +23,18 @@ const ActivityList = () => {
     fetchActivity();
   }, []);
 
-  const showActivity = activityList.map((activity) => {
-    return (
-      <ActivityCard
-        key={activity.id}
-        activity_id={activity.id}
-        to={activity.to}
-        via={activity.via}
-      />
-    );
-  });
+  const showActivity = activityList
+    .filter((activity) => !activity.is_archived)
+    .map((activity) => {
+      return (
+        <ActivityCard
+          key={activity.id}
+          activity_id={activity.id}
+          to={activity.to}
+          via={activity.via}
+        />
+      );
+    });
 
   if (!activityList) {
     return <div>Loading</div>;
