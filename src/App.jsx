@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./Header.jsx";
 import ActivityList from "./components/ActivityList.js";
 import Activity from "./components/Activity.js";
+import ActivityArchive from "./components/ActivityArchive.js";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route exact path={"/"} element={<ActivityList />} />
           <Route path={"/activities/:id"} element={<Activity />} />
+          <Route path={"/archive"} element={<ActivityArchive />} />
         </Routes>
       </div>
     </div>
