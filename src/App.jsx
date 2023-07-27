@@ -30,6 +30,45 @@ const App = () => {
     fetchActivityList();
   }, []);
 
+  const archiveAllActivities = async () => {
+    try {
+      for (const activity of activityList) {
+        await fetch(
+          `https://cerulean-marlin-wig.cyclic.app/activities/${activity.id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              is_archived: true,
+            }),
+          }
+        );
+      }
+      await fetchActivityList();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const unarchiveAllActivities = async () => {
+    try {
+      await fetch(`https://cerulean-marlin-wig.cyclic.app/reset`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          is_archived: false,
+        }),
+      });
+      await fetchActivityList();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const onInboxHome = async () => {
     setIsArchivePage(false);
     await fetchActivityList();
@@ -60,9 +99,18 @@ const App = () => {
               Archive List
             </Link>
           </div>
-          <Link className="activity_list_link" to="/archive">
-            Archive All
-          </Link>
+          {isArchivePage ? (
+            <Link
+              className="activity_list_link"
+              onClick={unarchiveAllActivities}
+            >
+              Unarchive All
+            </Link>
+          ) : (
+            <Link className="activity_list_link" onClick={archiveAllActivities}>
+              Archive All
+            </Link>
+          )}
         </div>
         <Routes>
           <Route
