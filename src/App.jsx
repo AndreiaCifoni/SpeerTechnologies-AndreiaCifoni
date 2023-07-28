@@ -32,20 +32,23 @@ const App = () => {
 
   const archiveAllActivities = async () => {
     try {
-      for (const activity of activityList) {
-        await fetch(
-          `https://cerulean-marlin-wig.cyclic.app/activities/${activity.id}`,
-          {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              is_archived: true,
-            }),
-          }
-        );
-      }
+      await Promise.all(
+        activityList.map(async (activity) => {
+          await fetch(
+            `https://cerulean-marlin-wig.cyclic.app/activities/${activity.id}`,
+            {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                is_archived: true,
+              }),
+            }
+          );
+        })
+      );
+
       await fetchActivityList();
     } catch (error) {
       console.log(error);
