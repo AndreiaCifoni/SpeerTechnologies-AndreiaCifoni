@@ -20,7 +20,20 @@ const App = () => {
       );
       const data = await response.json();
 
-      setActivityList(data);
+      const validData = data.filter(
+        (o) =>
+          Object.keys(o).includes("id") &&
+          Object.keys(o).includes("created_at") &&
+          Object.keys(o).includes("is_archived") &&
+          Object.keys(o).includes("call_type") &&
+          Object.keys(o).includes("duration") &&
+          Object.keys(o).includes("via") &&
+          Object.keys(o).includes("to") &&
+          Object.keys(o).includes("from") &&
+          Object.keys(o).includes("direction")
+      );
+
+      setActivityList(validData);
     } catch (error) {
       console.log(error);
     }
