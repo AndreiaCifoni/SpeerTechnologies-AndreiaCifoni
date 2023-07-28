@@ -2,7 +2,7 @@
 
 ## Note to the tech team
 
-During the development of this project, I could notice that some of the "calls" could not accept being changed to 'Archiev'. This could be due to the API presenting some of the activity keys missing, so when the command to do the "PATCH-BASE_URL/activities/<call_id>" is given, these specific activities are not moved to the Archive, returning a 404 error. This error was notice only in some activities, not impacting the use of other data from the API.
+During the development of this project, I could notice that some of the "calls" could not accept being changed to 'Archiev'. This could be due to the API presenting some of the activity keys missing, so when the command to do the "PATCH-BASE_URL/activities/<call_id>" is given, these specific activities are not moved to the Archive, returning a 404 error. This error was notice only in some activities, not impacting the use of other data from the API. A filter was applied on the "fetchActivityList", so incomplete activities are not included in the data.
 
 ## Summary
 
